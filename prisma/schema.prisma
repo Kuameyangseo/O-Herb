@@ -9,15 +9,16 @@ datasource db {
 }
 
 model images{
-  id String @id @default(auto()) @map("id") @db.objectId
+  id String @id @default(auto()) @map("_id") @db.ObjectId
   file_id String
   url String 
-  userId String? @unique @db.objectId
-  users users? @relation(fields: [userId], references: [id])
+  users users? @relation(fields: [userId], references: [iid])
+  userId String? @unique @db.ObjectId
+
 }
 
 model users{
-  id String @id @default(auto()) @map("id") @db.objectId
+  iid String @id @default(auto()) @map("_id") @db.ObjectId 
   name String
   email String @unique
   password String?
