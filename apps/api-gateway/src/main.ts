@@ -6,8 +6,6 @@
 import express from 'express';
 import cors from 'cors';
 import proxy from "express-http-proxy";
-import swaggerUi from 'swagger-ui-express';
-import axios from 'axios';
 import morgan from 'morgan';
 import cookieparser from 'cookie-parser';  
 import * as path from 'path';
@@ -53,6 +51,6 @@ app.use("/", proxy("http://localhost:6001")); // Auth Service
 
 const port = process.env.PORT || 8080;
 const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
+  console.log(`Oherb runing at http://localhost:${port}/api`);
 });
 server.on('error', console.error);
